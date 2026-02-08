@@ -41,7 +41,7 @@ export default function Page() {
     <div
       className="overflow-hidden relative min-h-screen flex flex-col items-center justify-center selection:bg-rose-600 selection:text-white text-zinc-900"
       style={{
-        backgroundImage: "url(/pexels-nietjuhart-776635.jpg)",
+        backgroundImage: "url(/valentine-hearts.jpg)",
         backgroundSize: "cover",
         backgroundPosition: "center",
         backgroundRepeat: "no-repeat",
@@ -67,7 +67,7 @@ export default function Page() {
           <div className="relative glow-pulse animate-float">
             <img
               className="h-[230px] rounded-lg shadow-lg animate-float"
-              src="public/IMG_0370.jpeg"
+              src="/IMG_0370.jpeg"
             />
             {/* Floating hearts animation */}
             <div className="absolute -top-4 -right-4 animate-heart-1">❤️</div>
