@@ -38,7 +38,15 @@ export default function Page() {
   };
 
   return (
-    <div className="overflow-hidden flex flex-col items-center justify-center pt-4 h-screen -mt-16 selection:bg-rose-600 selection:text-white text-zinc-900">
+    <div
+      className="overflow-hidden relative min-h-screen flex flex-col items-center justify-center selection:bg-rose-600 selection:text-white text-zinc-900"
+      style={{
+        backgroundImage: "url(/pexels-nietjuhart-776635.jpg)",
+        backgroundSize: "cover",
+        backgroundPosition: "center",
+        backgroundRepeat: "no-repeat",
+      }}
+    >
       {yesPressed ? (
         <>
           <img src="https://media.tenor.com/gUiu1zyxfzYAAAAi/bear-kiss-bear-kisses.gif" />
@@ -56,12 +64,61 @@ export default function Page() {
             src={lovesvg2}
             className="fixed bottom-16 -z-10 animate-pulse md:right-24 right-10 md:w-40 w-32"
           />
-          <img
-            className="h-[230px] rounded-lg shadow-lg"
-            src="https://gifdb.com/images/high/cute-love-bear-roses-ou7zho5oosxnpo6k.webp"
-          />
+          <div className="relative glow-pulse animate-float">
+            <img
+              className="h-[230px] rounded-lg shadow-lg animate-float"
+              src="public/IMG_0370.jpeg"
+            />
+            {/* Floating hearts animation */}
+            <div className="absolute -top-4 -right-4 animate-heart-1">❤️</div>
+            <div className="absolute -bottom-2 -left-4 animate-heart-2">💕</div>
+            <div className="absolute top-1/2 -right-6 animate-heart-3">💗</div>
+          </div>
+          <style>{`@keyframes float {
+              0%, 100% { transform: translateY(0px) rotate(0deg); }
+              50% { transform: translateY(-10px) rotate(2deg); }
+            }
+            @keyframes heart-1 {
+              0%, 100% { transform: scale(1) translateY(0); opacity: 1; }
+              50% { transform: scale(1.2) translateY(-5px); opacity: 0.8; }
+            }
+            @keyframes heart-2 {
+              0%, 100% { transform: scale(1) translateY(0) rotate(-10deg); opacity: 1; }
+              50% { transform: scale(1.1) translateY(-8px) rotate(10deg); opacity: 0.8; }
+            }
+            @keyframes heart-3 {
+              0%, 100% { transform: scale(1) translateY(0); opacity: 1; }
+              50% { transform: scale(1.3) translateY(-3px); opacity: 0.7; }
+            }
+            .animate-float { animation: float 3s ease-in-out infinite; }
+            .animate-heart-1 { animation: heart-1 2s ease-in-out infinite; }
+            .animate-heart-2 { animation: heart-2 2.5s ease-in-out infinite; }
+            .animate-heart-3 { animation: heart-3 1.8s ease-in-out infinite; }
+            @keyframes glow-pulse {
+              0%, 100% {
+                box-shadow: 
+                  0 0 5px #ffb6c1,
+                  0 0 10px #ffb6c1,
+                  0 0 20px #ffb6c1,
+                  0 0 40px #ff69b4;
+                border-color: #ffb6c1;
+              }
+              50% {
+                box-shadow: 
+                  0 0 10px #ffb6c1,
+                  0 0 20px #ffb6c1,
+                  0 0 40px #ffb6c1,
+                  0 0 80px #ff69b4;
+                border-color: #ff69b4;
+              }
+            }
+            .glow-pulse {
+              border: 3px solid #ffb6c1;
+              animation: glow-pulse 2s ease-in-out infinite;
+            }
+          `}</style>
           <h1 className="text-4xl md:text-6xl my-4 text-center">
-            Will you be my Valentine?
+            Estelle, will you be my Valentine?
           </h1>
           <div className="flex flex-wrap justify-center gap-2 items-center">
             <button
@@ -80,7 +137,6 @@ export default function Page() {
           </div>
         </>
       )}
-      <Footer />
     </div>
   );
 }
